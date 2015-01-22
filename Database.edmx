@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FinanceCrawlerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="FinanceCrawlerModelStoreContainer">
+          <EntitySet Name="HotCopper_Authors" EntityType="FinanceCrawlerModel.Store.HotCopper_Authors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HotCopper_Market_data" EntityType="FinanceCrawlerModel.Store.HotCopper_Market_data" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HotCopper_Posts" EntityType="FinanceCrawlerModel.Store.HotCopper_Posts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HotCopper_Threads" EntityType="FinanceCrawlerModel.Store.HotCopper_Threads" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="HotCopper_Authors">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Name="Identity" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Num_of_Posts" Type="bigint" />
+          <Property Name="Likes_Received" Type="bigint" />
+          <Property Name="Following" Type="bigint" />
+          <Property Name="Followers" Type="bigint" />
+          <Property Name="Following_List" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Followers_List" Type="nvarchar(max)" />
+          <Property Name="Num_of_Posts_in_calendar_month" Type="bigint" />
+          <Property Name="Following_Stocks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HotCopper_Market_data">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Name="Identity" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="High" Type="numeric" Scale="2" />
+          <Property Name="Low" Type="numeric" Scale="2" />
+          <Property Name="Open" Type="numeric" Scale="2" />
+          <Property Name="Last" Type="numeric" Scale="2" />
+          <Property Name="Market_Price" Type="numeric" Scale="2" />
+          <Property Name="Volume_(Millions)" Type="numeric" Scale="2" />
+          <Property Name="Value_(Millions)" Type="numeric" Scale="2" />
+          <Property Name="Market_Cap_(Billions)" Type="numeric" Scale="2" />
+        </EntityType>
+        <EntityType Name="HotCopper_Posts">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Name="Identity" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stock" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PageNum" Type="bigint" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="NegWords" Type="bigint" />
+          <Property Name="PosWords" Type="bigint" />
+          <Property Name="Likes" Type="bigint" />
+          <Property Name="Price_at_Posting" Type="numeric" Scale="2" />
+          <Property Name="Sentiment" Type="nvarchar(max)" />
+          <Property Name="Disclosure" Type="nvarchar(max)" />
+          <Property Name="Author" Type="nvarchar(max)" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Post_ID" Type="bigint" />
+          <Property Name="IP" Type="nvarchar(max)" />
+          <Property Name="Length_of_Post" Type="bigint" />
+        </EntityType>
+        <EntityType Name="HotCopper_Threads">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Name="Identity" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stock" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tags" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="First_Poster" Type="nvarchar(max)" />
+          <Property Name="Num_of_Views" Type="bigint" />
+          <Property Name="Begin_Date" Type="datetime" />
+          <Property Name="Last_Poster" Type="nvarchar(max)" />
+          <Property Name="Last_Post" Type="nvarchar(max)" />
+          <Property Name="Num_of_Posts" Type="bigint" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinanceCrawlerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FinanceCrawlerEntities" p1:LazyLoadingEnabled="true" >
+          <EntitySet Name="HotCopper_Authors" EntityType="FinanceCrawlerModel.HotCopper_Authors" />
+          <EntitySet Name="HotCopper_Market_data" EntityType="FinanceCrawlerModel.HotCopper_Market_data" />
+          <EntitySet Name="HotCopper_Posts" EntityType="FinanceCrawlerModel.HotCopper_Posts" />
+          <EntitySet Name="HotCopper_Threads" EntityType="FinanceCrawlerModel.HotCopper_Threads" />
+        </EntityContainer>
+        <EntityType Name="HotCopper_Authors">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Type="Int64" Name="Identity" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Num_of_Posts" />
+          <Property Type="Int64" Name="Likes_Received" />
+          <Property Type="Int64" Name="Following" />
+          <Property Type="Int64" Name="Followers" />
+          <Property Type="String" Name="Following_List" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Followers_List" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Num_of_Posts_in_calendar_month" />
+          <Property Type="String" Name="Following_Stocks" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HotCopper_Market_data">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Type="Int64" Name="Identity" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Tag" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="High" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Low" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Open" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Last" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Market_Price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Volume__Millions_" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Value__Millions_" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Market_Cap__Billions_" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="HotCopper_Posts">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Type="Int64" Name="Identity" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Stock" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="PageNum" Nullable="false" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="NegWords" />
+          <Property Type="Int64" Name="PosWords" />
+          <Property Type="Int64" Name="Likes" />
+          <Property Type="Decimal" Name="Price_at_Posting" Precision="18" Scale="2" />
+          <Property Type="String" Name="Sentiment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Disclosure" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateTime" Precision="3" />
+          <Property Type="Int64" Name="Post_ID" />
+          <Property Type="String" Name="IP" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Length_of_Post" />
+        </EntityType>
+        <EntityType Name="HotCopper_Threads">
+          <Key>
+            <PropertyRef Name="Identity" />
+          </Key>
+          <Property Type="Int64" Name="Identity" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Stock" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tags" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="First_Poster" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Num_of_Views" />
+          <Property Type="DateTime" Name="Begin_Date" Precision="3" />
+          <Property Type="String" Name="Last_Poster" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Last_Post" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Num_of_Posts" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinanceCrawlerModelStoreContainer" CdmEntityContainer="FinanceCrawlerEntities" >
+          <EntitySetMapping Name="HotCopper_Authors">
+            <EntityTypeMapping TypeName="FinanceCrawlerModel.HotCopper_Authors">
+              <MappingFragment StoreEntitySet="HotCopper_Authors">
+                <ScalarProperty Name="Following_Stocks" ColumnName="Following_Stocks" />
+                <ScalarProperty Name="Num_of_Posts_in_calendar_month" ColumnName="Num_of_Posts_in_calendar_month" />
+                <ScalarProperty Name="Followers_List" ColumnName="Followers_List" />
+                <ScalarProperty Name="Following_List" ColumnName="Following_List" />
+                <ScalarProperty Name="Followers" ColumnName="Followers" />
+                <ScalarProperty Name="Following" ColumnName="Following" />
+                <ScalarProperty Name="Likes_Received" ColumnName="Likes_Received" />
+                <ScalarProperty Name="Num_of_Posts" ColumnName="Num_of_Posts" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Identity" ColumnName="Identity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotCopper_Market_data">
+            <EntityTypeMapping TypeName="FinanceCrawlerModel.HotCopper_Market_data">
+              <MappingFragment StoreEntitySet="HotCopper_Market_data">
+                <ScalarProperty Name="Market_Cap__Billions_" ColumnName="Market_Cap_(Billions)" />
+                <ScalarProperty Name="Value__Millions_" ColumnName="Value_(Millions)" />
+                <ScalarProperty Name="Volume__Millions_" ColumnName="Volume_(Millions)" />
+                <ScalarProperty Name="Market_Price" ColumnName="Market_Price" />
+                <ScalarProperty Name="Last" ColumnName="Last" />
+                <ScalarProperty Name="Open" ColumnName="Open" />
+                <ScalarProperty Name="Low" ColumnName="Low" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Identity" ColumnName="Identity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotCopper_Posts">
+            <EntityTypeMapping TypeName="FinanceCrawlerModel.HotCopper_Posts">
+              <MappingFragment StoreEntitySet="HotCopper_Posts">
+                <ScalarProperty Name="Length_of_Post" ColumnName="Length_of_Post" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Disclosure" ColumnName="Disclosure" />
+                <ScalarProperty Name="Sentiment" ColumnName="Sentiment" />
+                <ScalarProperty Name="Price_at_Posting" ColumnName="Price_at_Posting" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="PosWords" ColumnName="PosWords" />
+                <ScalarProperty Name="NegWords" ColumnName="NegWords" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PageNum" ColumnName="PageNum" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Identity" ColumnName="Identity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotCopper_Threads">
+            <EntityTypeMapping TypeName="FinanceCrawlerModel.HotCopper_Threads">
+              <MappingFragment StoreEntitySet="HotCopper_Threads">
+                <ScalarProperty Name="Num_of_Posts" ColumnName="Num_of_Posts" />
+                <ScalarProperty Name="Last_Post" ColumnName="Last_Post" />
+                <ScalarProperty Name="Last_Poster" ColumnName="Last_Poster" />
+                <ScalarProperty Name="Begin_Date" ColumnName="Begin_Date" />
+                <ScalarProperty Name="Num_of_Views" ColumnName="Num_of_Views" />
+                <ScalarProperty Name="First_Poster" ColumnName="First_Poster" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Identity" ColumnName="Identity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

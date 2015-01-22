@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55d8501970f640c8b243f7e91b5d59df" Name="Diagram1" ZoomLevel="33" >
+        <EntityTypeShape EntityType="FinanceCrawlerModel.HotCopper_Authors" Width="1.5" PointX="4.875" PointY="0.75" />
+        <EntityTypeShape EntityType="FinanceCrawlerModel.HotCopper_Market_data" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="FinanceCrawlerModel.HotCopper_Posts" Width="1.5" PointX="6.875" PointY="0.75" />
+        <EntityTypeShape EntityType="FinanceCrawlerModel.HotCopper_Threads" Width="1.5" PointX="9.875" PointY="2.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
